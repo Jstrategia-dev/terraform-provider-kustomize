@@ -31,10 +31,9 @@ builds:
   - windows_386
   - linux_amd64
   - linux_386
-  - darwin_amd64
   ignore:
   - goos: darwin
-    goarch: "386"
+    goarch: ""
     goarm: ""
     gomips: ""
   dir: .
@@ -43,7 +42,7 @@ builds:
   - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
   flags:
   - -trimpath
-  binary: '{{ .ProjectName }}_v{{ .Version }}'
+  binary: terraform-provider-kustomization_v{{ .Version }}
   env:
   - CGO_ENABLED=0
   lang: go
@@ -53,7 +52,7 @@ archives:
 - id: default
   builds:
   - terraform-provider-kustomize
-  name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+  name_template: terraform-provider-kustomization_{{ .Version }}_{{ .Os }}_{{ .Arch }}
   format: zip
   files:
   - licence*
@@ -67,7 +66,7 @@ archives:
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT-{{ .ShortCommit }}'
 checksum:
-  name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
+  name_template: terraform-provider-kustomization_{{ .Version }}_SHA256SUMS
   algorithm: sha256
 changelog:
   skip: true
