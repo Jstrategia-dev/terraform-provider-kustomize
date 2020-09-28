@@ -27,7 +27,7 @@ builds:
   #   - arm64
   ignore:
     - goos: darwin
-     # goarch: '386'
+      goarch: 'amd64'
   binary: 'terraform-provider-kustomization_v{{ .Version }}'
 archives:
 - format: zip
